@@ -63,7 +63,7 @@ public class MyArrayLinkedList<T> : ICollection<T> where T : IComparable<T>
     }
 
     IEnumerator IEnumerable.GetEnumerator()
-        => ((IEnumerable)this).GetEnumerator());
+        => ((IEnumerable)this).GetEnumerator();
     #endregion
     #region Add
     private void AddFirst(ArrayNode<T> item)

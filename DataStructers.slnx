@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="MyBinaryTreeLibrary/MyBinaryTreeLibrary.csproj" Id="8d63d911-da19-41b3-8f27-f9e385f0a9da" />
   <Project Path="MyLinkedListConsole/MyLinkedListConsole.csproj" />
   <Project Path="MyLinkedListLibrary/MyLinkedListLibrary.csproj" />
   <Project Path="MyPriorityQueueLibrary/MyPriorityQueueLibrary.csproj" />

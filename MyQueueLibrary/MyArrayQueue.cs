@@ -4,12 +4,15 @@ namespace MyQueueLibrary;
 
 public class MyArrayQueue<T> : IEnumerable<T>
 {
-    public int Length { get => queue.Length; private set; }
     T[] queue;
-    public MyArrayQueue(int length)
-        => queue = new T[length];
+    public int Count { get => queue.Length; private set; }
 
-    public void Add(T item)
+    public MyArrayQueue(int count)
+    {
+        queue = new T[count];
+        Count = count;
+    }
+    public void Enqueue(T item)
     {
         T[] copyArray = new T[queue.Length + 1];
         copyArray[0] = item;
@@ -17,7 +20,7 @@ public class MyArrayQueue<T> : IEnumerable<T>
             copyArray[i + 1] = queue[i];
         queue = copyArray;
     }
-    public void Remove(T item)
+    public void Dequeue(T item)
     {
         T[] copyArray = new T[queue.Length - 1];
         for (int i = 0; i < queue.Length - 1; i++)

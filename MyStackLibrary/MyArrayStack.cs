@@ -5,13 +5,13 @@ namespace MyStackLibrary;
 public class MyArrayStack<T> : IEnumerable<T> where T : IComparable<T>
 {
     T[] stack;
-    public int Length { get => stack.Length; private set; }
-    public MyArrayStack(int length)
+    public int Count { get => stack.Length; private set; }
+    public MyArrayStack(int count)
     {
-        stack = new T[length];
-        Length = length;
+        stack = new T[count];
+        Count = count;
     }
-    public void Add(T item)
+    public void Push(T item)
     {
         T[] copyArray = new T[stack.Length + 1];
         for (int i = 0; i < stack.Length; i++)
@@ -19,7 +19,7 @@ public class MyArrayStack<T> : IEnumerable<T> where T : IComparable<T>
         copyArray[copyArray.Length - 1] = item;
         stack = copyArray; 
     }
-    public void Remove(T item)
+    public void Pop(T item)
     {
         T[] copyArray = new T[stack.Length - 1];
         for (int i = 0; i < stack.Length - 1; i++)

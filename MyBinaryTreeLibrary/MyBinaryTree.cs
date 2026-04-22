@@ -4,8 +4,7 @@ namespace MyBinaryTreeLibrary;
 public class MyBinaryTree<T> : IEnumerable<T>
     where T : IComparable<T>
 {
-    private MyBinaryTreeNode<T>? _root { get; set; }
-    private int _count { get; set; }
+    private MyBinaryTreeNode<T>? root { get; set; }
 
     public void PostOrderTraversal(Action<T> action, MyBinaryTreeNode<T>? node)
     {
@@ -76,13 +75,13 @@ public class MyBinaryTree<T> : IEnumerable<T>
         if (node == null || node.Value == null)
             throw new ArgumentNullException(nameof(node));
 
-        if (_root == null)
+        if (root == null)
         {
-            _root = node;
+            root = node;
             return;
         }
 
-        MyBinaryTreeNode<T>? current = _root;
+        MyBinaryTreeNode<T>? current = root;
         MyBinaryTreeNode<T>? parent = null;
 
         while (current != null)
@@ -115,14 +114,13 @@ public class MyBinaryTree<T> : IEnumerable<T>
                 yield return item;
         }
     }
-
     public IEnumerable<T> InOrderTraversal()
     {
-        if (_root != null)
+        if (root != null)
         {
 
             Stack<MyBinaryTreeNode<T>> stack = new Stack<MyBinaryTreeNode<T>>();
-            MyBinaryTreeNode<T>? current = _root;
+            MyBinaryTreeNode<T>? current = root;
 
             bool goleftdown = true;
             stack.Push(current);
@@ -155,7 +153,7 @@ public class MyBinaryTree<T> : IEnumerable<T>
     }
 
     public IEnumerator<T> GetEnumerator()
-        => EnumerationMethod(_root).GetEnumerator();
+        => EnumerationMethod(root).GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator()
         => GetEnumerator();

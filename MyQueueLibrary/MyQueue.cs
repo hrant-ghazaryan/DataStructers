@@ -15,7 +15,7 @@ public class MyQueue<T> : IEnumerable<T> where T : IComparable<T>
             throw new ArgumentException("Queue is empty!");
 
         T value = queue.Head.Value;
-        queue.RemoveFirst(queue.Head.Value);
+        queue.RemoveFirst();
         return value;
     }
     public T Peek()

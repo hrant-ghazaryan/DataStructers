@@ -19,6 +19,7 @@ public class MyArrayQueue<T> : IEnumerable<T>
         for (int i = 0; i < queue.Length; i++) 
             copyArray[i + 1] = queue[i];
         queue = copyArray;
+        Count++;
     }
     public void Dequeue(T item)
     {
@@ -26,6 +27,7 @@ public class MyArrayQueue<T> : IEnumerable<T>
         for (int i = 0; i < queue.Length - 1; i++)
             copyArray[i] = queue[i];
         queue = copyArray;
+        Count--;
     }
     public IEnumerator<T> GetEnumerator()
     {

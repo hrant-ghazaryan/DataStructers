@@ -3,18 +3,19 @@ using System.Collections;
 
 namespace MyStackLibrary;
 
-public class MyStack<T> : IEnumerable<T> where T : IComparable<T>
+public class MyStack<T> : IEnumerable<T> , IComparable<T>
+    where T : IComparable<T>
 {
     public MyLinkedList<T> stack = new MyLinkedList<T>();
     public int Count { get => stack.Count; }
 
-    public T Pop(T item)
+    public T Pop()
     {
         if (Count == 0)
             throw new ArgumentException("Stack is empty!");
 
         T value = stack.Head.Value;
-        stack.RemoveFirst(item);
+        stack.RemoveFirst();
         return value;
     }
     public T? Peek()
@@ -32,4 +33,9 @@ public class MyStack<T> : IEnumerable<T> where T : IComparable<T>
     }
     IEnumerator IEnumerable.GetEnumerator()
         => ((IEnumerable<T>)this).GetEnumerator();
+
+    public int CompareTo(T? other)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -2,7 +2,8 @@
 
 namespace MyLinkedListLibrary;
 
-public class MyLinkedList<T> : ICollection<T>  where T : IComparable<T>
+public class MyLinkedList<T> : ICollection<T>  ,IComparable<T>
+    where T : IComparable<T>
 {
     public MyLinkedListNode<T>? Head { get; set; }
     public MyLinkedListNode<T>? Tail { get; set; }
@@ -93,9 +94,9 @@ public class MyLinkedList<T> : ICollection<T>  where T : IComparable<T>
     }
     #endregion
     #region Remove
-    public void RemoveFirst(T item)
-        => RemoveFirstt(new MyLinkedListNode<T>(item));
-    private void RemoveFirstt(MyLinkedListNode<T> item)
+    public void RemoveFirst()
+        => RemoveFirstt();
+    private void RemoveFirstt()
     {
         Head = Head?.Next;
         Count--;
@@ -142,7 +143,12 @@ public class MyLinkedList<T> : ICollection<T>  where T : IComparable<T>
         return false;
     }
 
-    
+    public int CompareTo(T? other)
+    {
+        throw new NotImplementedException();
+    }
+
+
     #endregion
 
 

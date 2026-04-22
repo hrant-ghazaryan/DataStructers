@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyLinkedListLibrary\MyLinkedListLibrary.csproj" />
+    <ProjectReference Include="..\MyBinaryTreeLibrary\MyBinaryTreeLibrary.csproj" />
   </ItemGroup>
 
 </Project>

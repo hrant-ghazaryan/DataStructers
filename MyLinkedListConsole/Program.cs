@@ -1,16 +1,14 @@
-﻿using MyLinkedListLibrary;
+﻿using MyBinaryTreeLibrary;
 
-MyLinkedList<int> head = new MyLinkedList<int>();
-
-int headCount = Convert.ToInt32(Console.ReadLine().Trim());
-
-for (int i = 0; i < headCount; i++)
-{
-    int headItem = Convert.ToInt32(Console.ReadLine().Trim());
-    head.Add(headItem);
-}
-
-int k = Convert.ToInt32(Console.ReadLine().Trim());
-
-MyLinkedListNode<int> result = Result<int>.RemoveKthNodeFromEnd(head.Head, k);
-
+MyBinaryTree<int> tree = new MyBinaryTree<int>();
+tree.Add(1);
+tree.Add(2);
+tree.Add(3);
+tree.Add(4);
+tree.Add(5);
+tree.Add(6);
+tree.Add(7);
+tree.Add(8);
+tree.Add(9);
+foreach (var item in tree)
+    Console.WriteLine(item);

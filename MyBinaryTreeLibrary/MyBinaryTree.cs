@@ -1,9 +1,8 @@
-﻿
-using System.Collections;
-using System.ComponentModel;
+﻿using System.Collections;
 namespace MyBinaryTreeLibrary;
 
-public class MyBinaryTree<T> : IEnumerable<T> where T : IComparable<T>
+public class MyBinaryTree<T> : IEnumerable<T>
+    where T : IComparable<T>
 {
     private MyBinaryTreeNode<T>? _root { get; set; }
     private int _count { get; set; }
@@ -64,6 +63,14 @@ public class MyBinaryTree<T> : IEnumerable<T> where T : IComparable<T>
         return current.Value;
     }
 
+
+    public void Add(T? value)
+    {
+        if (value == null)
+            throw new ArgumentNullException(nameof(value));
+        Add(new MyBinaryTreeNode<T>(value));
+    }
+
     public void Add(MyBinaryTreeNode<T>? node)
     {
         if (node == null || node.Value == null)
@@ -106,6 +113,44 @@ public class MyBinaryTree<T> : IEnumerable<T> where T : IComparable<T>
 
             foreach (var item in EnumerationMethod(node.Right))
                 yield return item;
+        }
+    }
+
+    public IEnumerable<T> InOrderTraversal()
+    {
+        if (_root != null)
+        {
+
+            Stack<MyBinaryTreeNode<T>> stack = new Stack<MyBinaryTreeNode<T>>();
+            MyBinaryTreeNode<T>? current = _root;
+
+            bool goleftdown = true;
+            stack.Push(current);
+
+            while (stack.Count > 0)
+            {
+                if (goleftdown)
+                {
+                    while (current.Left != null)
+                    {
+                        stack.Push(current);
+                        current = current.Left;
+                    }
+                }
+
+                yield return current.Value;
+
+                if (current.Right != null)
+                {
+                    current = current.Right;
+                    goleftdown = true;
+                }
+                else
+                {
+                    current = stack.Pop();
+                    goleftdown = false;
+                }
+            }
         }
     }
 

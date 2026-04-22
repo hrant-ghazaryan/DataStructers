@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyLinkedListLibrary\MyLinkedListLibrary.csproj" />
+    <ProjectReference Include="..\MyPriorityQueueLibrary\MyPriorityQueueLibrary.csproj" />
+    <ProjectReference Include="..\MyQueueLibrary\MyQueueLibrary.csproj" />
+    <ProjectReference Include="..\MyStackLibrary\MyStackLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

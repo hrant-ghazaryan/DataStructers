@@ -1,8 +1,11 @@
 <Solution>
+  <Project Path="Main_Console/Main_Console.csproj" Id="0cd8caf3-98ef-4fb2-b652-9eea30e7e15a" />
   <Project Path="MyBinaryTreeLibrary/MyBinaryTreeLibrary.csproj" Id="8d63d911-da19-41b3-8f27-f9e385f0a9da" />
   <Project Path="MyLinkedListConsole/MyLinkedListConsole.csproj" />
   <Project Path="MyLinkedListLibrary/MyLinkedListLibrary.csproj" />
   <Project Path="MyPriorityQueueLibrary/MyPriorityQueueLibrary.csproj" />
   <Project Path="MyQueueLibrary/MyQueueLibrary.csproj" Id="5cc1c917-3ea7-4070-91c0-13aa3ceaa821" />
+  <Project Path="MySet/MySet.csproj" Id="061f6e81-dc57-48f1-ad11-f8f82fe87b3e" />
+  <Project Path="MySetWPF/MySetWPF.csproj" Id="28c1aa89-26e4-42fa-9f30-e2801c72c904" />
   <Project Path="MyStackLibrary/MyStackLibrary.csproj" Id="ce4a487b-74b1-4f1c-9f22-a5aac038d528" />
 </Solution>

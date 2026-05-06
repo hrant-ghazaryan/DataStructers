@@ -1,10 +1,10 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using MyBinaryTreeLibrary;
 
 namespace MyLinkedListLibrary;
 
 public class Result<T> where T : IComparable<T>
 {
-
+    #region LinkedList
     // 1st easy task of HackerRank(LinkedList)
     /*public static MyLinkedListNode<int> removeKthNodeFromEnd(MyLinkedListNode<int> head, int k)
     {
@@ -125,7 +125,6 @@ public class Result<T> where T : IComparable<T>
 
         return arrayK[0];
     }*/
-
     public static MyLinkedListNode<int>? ExtractAndAppendSponsoredNodes(MyLinkedListNode<int> head)
     {
         MyLinkedListNode<int>? zuyg = head;
@@ -339,5 +338,114 @@ public class Result<T> where T : IComparable<T>
 
         return newHead;
     }
+    #endregion
 
+    #region BinaryTree
+    // 1st easy task of LeetCode(BinaryTree)
+    public bool IsSameTree(MyBinaryTreeNode<T>? p, MyBinaryTreeNode<T>? q)
+    {
+        if (p is null && q is null)
+            return true;
+
+        if ((p == null && q != null) || (q == null && p != null))
+            return false;
+
+        if (p is not null && q is not null && !p.Value.Equals(q.Value))
+            return false;
+
+        return IsSameTree(p.Left, q.Left) &&
+        IsSameTree(p.Right, q.Right);
+    }
+    // 2nd easy task of LeetCode(Binary Tree)
+    /*public int MaxDepth(MyBinaryTreeNode<T>? root)
+    {
+        if (root is null)
+            return 0;
+
+        MyBinaryTreeNode<T>? current = root;
+
+        int left = MaxDepth(current.Left);
+        int right = MaxDepth(current.Right);
+
+        int depth = 1 + Math.Max(left, right);
+
+        return depth;
+    }*/
+    public int MaxDepthWithQueue(MyBinaryTreeNode<T> root)
+    {
+        if (root is null) return 0;
+
+        Queue<MyBinaryTreeNode<T>> queue = new Queue<MyBinaryTreeNode<T>>();
+        queue.Enqueue(root);
+        int depth = 0;
+
+        while (queue.Count > 0)
+        {
+
+            int levelsize = queue.Count;
+            depth++;
+
+            for (int i = 0; i < levelsize; i++)
+            {
+                var node = queue.Dequeue();
+
+                if (node.Left is not null)
+                    queue.Enqueue(node.Left);
+
+                if (node.Right is not null)
+                    queue.Enqueue(node.Right);
+            }
+        }
+
+        return depth;
+    }
+    #endregion
+
+    #region CHESS_HORSE_SHORTEST MOVE
+    public int HorseMove((int, int) x, (int, int) y)
+    {
+        if (x == y) return 0;
+
+        int[] stepC = { 2, -2, 2, -2, 1, -1, 1, -1 };
+        int[] stepR = { 1, 1, -1, -1, 2, 2, -2, -2 };
+
+        (int, int) start = x;
+
+        bool[,] visited = new bool[8, 8];
+        visited[start.Item1, start.Item2] = true;
+
+        Queue<(int, int)> queue = new Queue<(int, int)>();
+        queue.Enqueue(start);
+
+        int depth = 0;
+        while (queue.Count > 0)
+        {
+            depth++;
+            int queueSize = queue.Count;
+
+            for (int j = 0; j < queueSize; j++)
+            {
+                (int, int) stepByI = queue.Dequeue();
+                if (stepByI == y)
+                    return depth;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    int dx = stepByI.Item1 + stepR[i];
+                    int dy = stepByI.Item2 + stepC[i];
+
+                    if (dx >= 0 && dx < 8 && dy >= 0 && dy < 8 && 
+                        !visited[dx, dy])
+                    {
+                        (int, int) current = (dx, dy);
+                        queue.Enqueue(current);
+                        visited[dx, dy] = true;
+                    }
+                }
+            }
+        }
+        return -1;
+
+    }
+    #endregion
 }

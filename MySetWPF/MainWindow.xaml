@@ -1,0 +1,19 @@
+﻿<Window x:Class="MySetWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MySetWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ComboBox Name="leftSet" HorizontalAlignment="Left" Height="33"  Margin="40,30,0,0"   VerticalAlignment="Top" Width="150" SelectionChanged="leftSet_SelectionChanged"/>
+        <ComboBox Name="operation" HorizontalAlignment="Left" Height="33"  Margin="220,31,0,0"  VerticalAlignment="Top" Width="150" />
+        <ComboBox Name="rightSet" HorizontalAlignment="Left" Height="33"  Margin="400,32,0,0"  VerticalAlignment="Top" Width="150" SelectionChanged="rightSet_SelectionChanged"/>
+        <Button   Name="evaluateButton" Content="Evaluate" HorizontalAlignment="Left" Height="33"  Margin="580,30,0,0"  VerticalAlignment="Top" Width="130" Click="evaluateButton_Click"/>
+        <ListBox  Name="leftMembers" HorizontalAlignment="Left" Height="300" Margin="41,100,0,0"  VerticalAlignment="Top" Width="150" />
+        <ListBox  Name="resultSet" HorizontalAlignment="Left" Height="300" Margin="580,100,0,0" VerticalAlignment="Top" Width="150"/>
+        <ListBox  Name="rightMembers" HorizontalAlignment="Left" Height="300" Margin="400,100,0,0" VerticalAlignment="Top" Width="150"/>
+
+    </Grid>
+</Window>
